@@ -26,11 +26,17 @@ const title_style = {
     fontSize: '3em',
     color:'cadetblue'
 };
-const router_style = {
+const router_style_lf = {
     width: '500px',
     height: '50px',
     margin: '10px',
-    textalign: 'center'
+    marginLeft: '200px'
+}
+const router_style_rg = {
+    width: '500px',
+    height: '50px',
+    margin: '10px',
+    marginLeft: '35px'
 }
 function App() {
     return ( 
@@ -39,8 +45,12 @@ function App() {
                 <Container fluid>
                     <Row style={row_title_style}><a style={title_style}>COVID-MAP</a></Row>
                     <Row>
-                        <Button variant="info" type="submit" style={router_style} href="/map">Bản đồ Việt Nam</Button>{' '}
-                        <Button variant="info" type="submit" style={router_style} href="/stats">Đồ thị ca mắc Covid</Button>{' '}
+                        <Col xs={6} style={{paddingRight:"1em"}}>
+                            <Button variant="info" type="submit" style={router_style_lf} href="/map">Bản đồ Việt Nam</Button>{' '}
+                        </Col>
+                        <Col xs={6} >
+                            <Button variant="info" type="submit" style={router_style_rg} href="/stats">Đồ thị ca mắc Covid</Button>{' '}
+                        </Col>
                     </Row>
                 </Container>
                 <Switch>
