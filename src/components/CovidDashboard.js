@@ -25,20 +25,9 @@ const CovidDashboard = (props) => {
     const patientMarkerClickedHandler = (patient) => {
         setCurrentPatient(patient);
     }
-
-    const row_title_style = {
-        textAlign:'center',
-        margin: '15px',
-        display: 'block'
-    }
-    const title_style = {
-        fontSize: '3em',
-        color:'cadetblue'
-    }
     
     console.log('Covid Dashboard render');
     return <Container fluid>
-            <Row style={row_title_style}><a style={title_style}>COVID-MAP</a></Row>
             <Row>
                 <Col xs={9}>
                     <Card>
