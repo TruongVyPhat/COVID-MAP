@@ -1,6 +1,10 @@
 exports.dataJson = {
     type: "spline",
     name: "",
+    markerType: "None",
+    mouseover: function(e){
+        this.markerType = "circle";
+    },
     showInLegend: true,
     dataPoints: []
 };
@@ -13,10 +17,13 @@ exports.point = {
 exports.options = {
     animationEnabled: true,	
     title: {
-      text: "Number patients"
+        text: ""
     },
     toolTip: {
         shared: true
+    },
+    axisY: {
+        title: "Number patients of case"
     },
     data: []
  };

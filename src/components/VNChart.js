@@ -17,11 +17,12 @@ const setupLines = (data) => {
     for (let i = 0; i < number_of_type; i++){
         
         let label_of_case = Object.keys(data)[i];
-
         let line = Line.dataJson;
         line.name = data[label_of_case].name;
         line.dataPoints = data[label_of_case].dataPoints;
-        result.push(line);
+        const line_str = JSON.stringify(line);
+
+        result.push(JSON.parse(line_str));
     }
     return result;
 };
@@ -73,8 +74,10 @@ const VNChart = ({}) => {
     const [Data, setData] = useState({});
     const options = Line.options;
     options.data = setupLines(Data);
+    options.title.text = "Viet Nam Covid Chart";
+    const options_str = JSON.stringify(options);
 
-    return <CanvasJSChart options={options} />;
+    return <CanvasJSChart options={JSON.parse(options_str)}/>;
 };
 
 export default VNChart;
