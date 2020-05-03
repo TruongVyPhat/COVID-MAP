@@ -1,15 +1,14 @@
 import React, {useEffect, useState} from 'react';
 import { Map, TileLayer } from 'react-leaflet';
 import MyMarker from './MyMarker';
+import axios from 'axios';
 
 const CovidMap = ({loadStaticData, onPatientMarkerClicked, onLoadList, selected_marker, listPatient}) => {
     const [patients, setPatients] = useState([]);
     useEffect(() => {
-        fetch("https://maps.vnpost.vn/apps/covid19/api/patientapi/list")
-            .then(res => res.json())
-            .then(
-                (result) => {
-                    let items = result.data;
+        axios.get('https://cors-anywhere.herokuapp.com/https://maps.vnpost.vn/apps/covid19/api/patientapi/list')
+            .then(res => {
+                    let items = res.data.data;
                     let sort_items = [];
                     while (items.length !== 0){
                         let temp = items.pop();
@@ -49,13 +48,6 @@ const CovidMap = ({loadStaticData, onPatientMarkerClicked, onLoadList, selected_
                                 onLoadList={onLoadList}
                                 selected_marker={selected_marker}
                                 patients={listPatient}/>})}
-            {/* {patients && patients.map((patient, index) => {
-                return <MyMarker key={index}
-                                patient={patient}
-                                onPatientMarkerClicked={onPatientMarkerClicked}
-                                onLoadList={onLoadList}
-                                selected_marker={selected_marker}
-                                patients={patients}/>})} */}
         </Map>;
 };
 
