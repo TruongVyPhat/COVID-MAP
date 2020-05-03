@@ -35,17 +35,6 @@ const CovidMap = ({loadStaticData, onPatientMarkerClicked, onLoadList, selected_
                 }
             )
     }, [])
-    
-    // const change_marker = (patient_name, selected_marker) => {
-    //     if (!selected_marker){
-    //         return;
-    //     }
-    //     if (patient_name === selected_marker.name){
-    //         popupRef.current.leafletElement.openPopup();
-    //     } else{
-    //         popupRef.current.leafletElement.closePopup();
-    //     }
-    // };
 
     return <Map center={[10.762887, 106.6800684]} zoom={13}>
             <TileLayer

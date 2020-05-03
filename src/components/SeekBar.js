@@ -7,37 +7,13 @@ import Row from "react-bootstrap/Row";
 import play from '../play.png';
 import pause from '../pause.png';
 import { Button } from '@material-ui/core';
+import CONSTRAINT from '../helper/constraint';
+import FomaterTime from '../functions/FormatTime';
 
 const start = '2019-12-08T00:00:00';
-const msec_per_day = 86400000;
+const msec_per_day = CONSTRAINT.msec_per_day;
 const current_date = parseInt((Date.now() - Date.parse(start)) / msec_per_day);
 
-const gettime_to_format = (time) =>{
-  let d = new Date(time);
-  let year = d.getFullYear();
-  let month = d.getMonth() + 1;
-  let day =  d.getDate();
-  let hour = d.getHours();
-  let min = d.getMinutes();
-  let sec = d.getSeconds();
-
-  if (day < 10){
-      day = '0'+ day;
-  }
-  if (month < 10){
-      month = '0' + month;
-  }
-  if (hour < 10){
-      hour = '0' + hour;
-  }
-  if (min < 10){
-     min = '0' + min; 
-  }
-  if (sec < 10){
-      sec = '0' + sec;
-  }
-  return year+'-'+month+'-'+day;
-};
 const useStyles = makeStyles({
   root: {
     width: 950,
@@ -52,7 +28,7 @@ const make_seek_marker = (patients) =>{
   for (let i = 0; i <= current_date; i++){
 
     let time = start_date + i*msec_per_day; // móc thời gian
-    let day_in_label = gettime_to_format(time);
+    let day_in_label = FomaterTime.gettime_to_format(time);
     let up_to_date = {
       value: i,
       label: day_in_label,

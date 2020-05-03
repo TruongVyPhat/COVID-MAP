@@ -3,11 +3,12 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import CanvasJSReact from '../canavasjs/canvasjs.react';
 import axios from 'axios';
-import pos from '../helper/constraint';
+import CONSTRAINT from '../helper/constraint';
 import Line from '../helper/LineChartJson';
 import DataJson from '../helper/Data';
+import FomaterTime from '../functions/FormatTime';
 
-const vnPos = pos.vn_case;
+const vnPos = CONSTRAINT.vn_case;
 const CanvasJS = CanvasJSReact.CanvasJS;
 const CanvasJSChart = CanvasJSReact.CanvasJSChart;
 

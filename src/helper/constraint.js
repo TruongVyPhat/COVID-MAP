@@ -9,3 +9,5 @@ exports.world_case = {
     DeadCase: 1,
     CuredCase: 2
 };
+
+exports.msec_per_day = 86400000;
