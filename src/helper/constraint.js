@@ -11,3 +11,4 @@ exports.world_case = {
 };
 
 exports.msec_per_day = 86400000;
+exports.start_date = '2019-12-08T00:00:00';

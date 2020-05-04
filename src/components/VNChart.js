@@ -35,8 +35,6 @@ const VNChart = ({}) => {
         axios.get('https://td.fpt.ai/corona/corona-chart-vn.json')
         .then(res => {
             const apiData = res.data;
-            setAPIData(apiData);
-
             // data
             let data_tmp = DataJson.VN_Data;
             const apiData_size = Object.keys(apiData).length;
@@ -67,6 +65,7 @@ const VNChart = ({}) => {
                 }
             }
             setData(data_tmp);
+            setAPIData(apiData);
         })
         .catch(error => console.log(error));
     }, [])
